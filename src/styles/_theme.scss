@@ -1,2 +1,8 @@
-input {
+@layer base {
+  h1 {
+    @apply text-center text-xl font-bold italic;
+  }
+  a {
+    @apply text-center text-xl font-bold italic no-underline;
+  }
 }
