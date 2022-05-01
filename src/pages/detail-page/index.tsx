@@ -1,9 +1,7 @@
-import React from 'react'
+import { FC } from "react";
 
-const DetailPage = () => {
-  return (
-    <div>DetailPage</div>
-  )
-}
+const DetailPage: FC = () => {
+  return <div>DetailPage</div>;
+};
 
-export default DetailPage
+export default DetailPage;

@@ -1,9 +1,7 @@
-import React from 'react'
+import { FC } from "react";
 
-const CreatePage = () => {
-  return (
-    <div>CreatePage</div>
-  )
-}
+const CreatePage: FC = () => {
+  return <div>CreatePage</div>;
+};
 
-export default CreatePage
+export default CreatePage;

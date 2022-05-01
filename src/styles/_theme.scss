@@ -5,4 +5,7 @@
   a {
     @apply text-center text-xl font-bold italic no-underline;
   }
+  input {
+    @apply rounded-xl bg-white px-5 shadow-md h-10 ring-black;
+  }
 }

@@ -1,9 +1,10 @@
-import React from 'react'
+import { FC, useState, ChangeEvent } from "react";
+import ProductList from "../../components/product-list";
 
-const HomePage = () => {
-  return (
-    <div>HomePage</div>
-  )
-}
+const HomePage: FC = () => {
+   return (
+   <ProductList/>
+  );
+};
 
-export default HomePage
+export default HomePage;
