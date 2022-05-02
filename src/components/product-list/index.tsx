@@ -2,6 +2,7 @@ import { useState, ChangeEvent, useEffect } from "react";
 import DropDown from "../dropdown";
 import * as API from "../../api/index";
 import ProductCard, { IProductCard } from "../product-card";
+import Spinner from "../spinner";
 
 export interface IProduct {
   id: number;
@@ -24,6 +25,7 @@ const ProductList = () => {
   const [products, setProducts] = useState<Array<IProduct>>([]);
   const [categories, setCategories] = useState<Array<ICategory>>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const [loading, setLoading] = useState<boolean>(true);
 
   const onSearchChange = (event: ChangeEvent<HTMLInputElement>): void => {
     const searchFieldValue = event.target.value.toLocaleLowerCase();
@@ -60,6 +62,7 @@ const ProductList = () => {
 
   useEffect(() => {
     const getAllData = () => {
+      setLoading(true);
       Promise.all([API.getProducts(), API.getCategories()])
         .then((result) => {
           /* Products */
@@ -75,7 +78,9 @@ const ProductList = () => {
         .catch((error) => {
           console.log(error);
         })
-        .finally(() => {});
+        .finally(() => {
+          setLoading(false);
+        });
     };
     getAllData();
   }, [setProductList, setCategories]);
@@ -93,7 +98,9 @@ const ProductList = () => {
         />
         <DropDown options={categories} setSelected={setSelectedCategory} />
       </div>
-      {products.length > 0 ? (
+      {loading ? (
+        <Spinner />
+      ) : products.length > 0 ? (
         <div className="my-6 grid w-3/5 grid-cols-3 gap-8 self-center md:my-10 md:grid-cols-4 md:gap-14 md:px-6">
           {products.map((product, index) => {
             return (
