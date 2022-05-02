@@ -1,4 +1,4 @@
-import { FC, useState, ChangeEvent } from "react";
+import { FC } from "react";
 import ProductList from "../../components/product-list";
 
 const HomePage: FC = () => {
