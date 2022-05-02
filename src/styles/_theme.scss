@@ -1,11 +1,14 @@
 @layer base {
   h1 {
-    @apply text-center text-2xl font-bold;
+    @apply text-center text-lg sm:text-2xl font-bold;
   }
 //   a {
 //     @apply text-center text-xl font-bold italic no-underline;
 //   }
   input {
     @apply rounded-xl bg-white px-5 shadow-lg h-11 ring-black ;
+  }
+   textarea {
+    @apply rounded-xl bg-white px-5 py-2 shadow-lg h-11 ring-black ;
   }
 }

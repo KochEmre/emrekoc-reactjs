@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import Header from "./components/header";
 import Page404 from "./pages/404-page";
 import CreatePage from "./pages/create-page";
@@ -17,6 +18,13 @@ const App = () => {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="*" element={<Page404 />} />
       </Routes>
+      <ToastContainer
+        position="bottom-center"
+        theme="light"
+        limit={4}
+        pauseOnFocusLoss
+        autoClose={2000}
+      />
     </div>
   );
 };

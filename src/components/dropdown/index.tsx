@@ -8,18 +8,28 @@ function classNames(...classes: string[]) {
 }
 
 export interface IDropDownProps {
-  optionAll ?: boolean;
+  optionAll?: boolean;
   options: Array<ICategory>;
   setSelected?: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const DropDown: FC<IDropDownProps> = ({ options, setSelected, optionAll=true }) => {
-      const [shownText, setShownText] = useState<string>("Categories");
+const initialPlaceholder: string = "Categories";
+
+const DropDown: FC<IDropDownProps> = ({
+  options,
+  setSelected,
+  optionAll = true,
+}) => {
+  const [shownText, setShownText] = useState<string>(initialPlaceholder);
 
   return (
     <Menu as="div" className="relative inline-block w-full text-left">
       <div>
-        <Menu.Button className="inline-flex h-11 w-full items-center justify-between rounded-xl border border-gray-300 bg-white px-5 py-2 text-sm font-medium text-gray-400 shadow-md ring-black hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 focus:ring-offset-gray-100">
+        <Menu.Button
+          className={`inline-flex h-11 w-full items-center justify-between rounded-xl border border-gray-300 bg-white px-5 py-2 font-medium shadow-md ring-black hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 focus:ring-offset-gray-100 ${
+            shownText === initialPlaceholder ? "text-gray-400" : "text-gray-700"
+          }`}
+        >
           {shownText}
           <ChevronDownIcon
             className="-mr-1 ml-2 h-5 w-5 text-gray-700"
@@ -45,7 +55,7 @@ const DropDown: FC<IDropDownProps> = ({ options, setSelected, optionAll=true }) 
                   <a
                     className={classNames(
                       active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                      "block px-4 py-2 text-sm"
+                      "block px-4 py-2"
                     )}
                     onClick={() => {
                       setSelected?.("all");
@@ -63,7 +73,7 @@ const DropDown: FC<IDropDownProps> = ({ options, setSelected, optionAll=true }) 
                   <a
                     className={classNames(
                       active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                      "block px-4 py-2 text-sm"
+                      "block px-4 py-2 "
                     )}
                     onClick={() => {
                       setSelected?.(child.name);

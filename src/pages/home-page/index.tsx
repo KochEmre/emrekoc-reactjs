@@ -1,9 +1,13 @@
-import { FC } from "react";
+import { FC, Fragment } from "react";
+import AddButton from "../../components/addButton";
 import ProductList from "../../components/product-list";
 
 const HomePage: FC = () => {
-   return (
-   <ProductList/>
+  return (
+    <Fragment>
+      <ProductList />
+      <AddButton />
+    </Fragment>
   );
 };
 

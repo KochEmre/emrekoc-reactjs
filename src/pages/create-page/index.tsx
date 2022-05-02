@@ -4,6 +4,8 @@ import * as API from "../../api";
 import DropDown from "../../components/dropdown";
 import { ICategory, IProduct } from "../../components/product-list";
 import Spinner from "../../components/spinner";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export interface IPostData {
   name: string;
@@ -25,17 +27,25 @@ const CreatePage: FC = () => {
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
+    debugger;
+    if (!category){
+      toast.error("Please choose a category.");
+      return;
+    }
 
     const postData: IPostData = {
       name: productName,
-      price: price,
-      category: category,
-      description: description,
+      price,
+      category,
+      description,
       avatar: imageUrl,
     };
 
     API.createProduct(postData as IProduct)
-      .then((result) => {console.log(result,"create")})
+      .then((result) => {
+        toast.success(result.data.name.charAt(0).toUpperCase() + result.data.name.slice(1) + " is created.");
+        console.log(result, "create");
+      })
       .catch((error) => {
         console.log(error);
       })
@@ -47,6 +57,7 @@ const CreatePage: FC = () => {
   };
 
   useEffect(() => {
+
     const fetchCategories = () => {
       setLoading(true);
       API.getCategories()
@@ -71,8 +82,8 @@ const CreatePage: FC = () => {
       {loading ? (
         <Spinner />
       ) : (
-        <div className="mt-8 flex w-96 flex-col self-center">
-          <h1 className="text-3xl font-semibold">Create Product</h1>
+        <div className="mt-8 flex w-11/12 max-w-sm flex-col self-center">
+          <h1 className="text-2xl sm:text-3xl font-semibold">Create Product</h1>
           <form className="mt-10 flex flex-col gap-6" onSubmit={handleSubmit}>
             <input
               className="w-full"
@@ -83,11 +94,10 @@ const CreatePage: FC = () => {
               }
               required
             />
-            <input
-              className="w-full"
-              type={"text"}
+            <textarea
+              className="h-24 w-full "
               placeholder={"Description"}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
                 setDescription(e.target.value)
               }
               required
