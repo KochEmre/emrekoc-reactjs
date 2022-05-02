@@ -15,7 +15,7 @@ export const getProducts = async () => await axios.get(API_ENDPOINT + "products"
 export const getProduct = async (id: string) =>
   await axios.get(API_ENDPOINT + "products/" + id);
 
-export const addProduct = async (data: IProduct) =>
+export const createProduct = async (data: IProduct) =>
   await axios.post(API_ENDPOINT + "products/", {
     name: data.name,
     price: data.price,
