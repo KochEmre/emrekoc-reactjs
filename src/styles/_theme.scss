@@ -1,11 +1,11 @@
 @layer base {
   h1 {
-    @apply text-center text-2xl font-bold italic;
+    @apply text-center text-2xl font-bold;
   }
 //   a {
 //     @apply text-center text-xl font-bold italic no-underline;
 //   }
   input {
-    @apply rounded-xl bg-white px-5 shadow-md h-11 ring-black ;
+    @apply rounded-xl bg-white px-5 shadow-lg h-11 ring-black ;
   }
 }

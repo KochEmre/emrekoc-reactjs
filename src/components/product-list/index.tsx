@@ -28,7 +28,7 @@ const ProductList = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
   const onSearchChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    const searchFieldValue = event.target.value.toLocaleLowerCase();
+    const searchFieldValue = event.target.value.toLowerCase();
     setSearchValue(searchFieldValue);
   };
 
@@ -49,7 +49,7 @@ const ProductList = () => {
 
     /* Search Filter */
     const searchFilteredData = categoryFilteredData.filter((item) => {
-      return item.name.toLowerCase().includes(searchValue.toLowerCase());
+      return item.name.toLowerCase().includes(searchValue);
     });
 
     /* Empty Data Filter */
@@ -119,7 +119,7 @@ const ProductList = () => {
           })}
         </div>
       ) : (
-        <h1 className="text-center text-2xl not-italic">
+        <h1 className="text-center text-2xl">
           There Aren't Any Products
         </h1>
       )}

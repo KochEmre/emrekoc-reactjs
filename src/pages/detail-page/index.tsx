@@ -58,7 +58,7 @@ const DetailPage: FC = () => {
               />
             </div>
             <div className="flex flex-col justify-between">
-              <h1 className="text-left text-5xl font-bold not-italic">
+              <h1 className="text-left text-5xl font-bold">
                 {productDetail.name.charAt(0).toUpperCase() +
                   productDetail.name.slice(1)}
               </h1>

@@ -9,7 +9,7 @@ function classNames(...classes: string[]) {
 
 export interface IDropDownProps {
   options: Array<ICategory>;
-  setSelected: React.Dispatch<React.SetStateAction<string>>;
+  setSelected?: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const DropDown: FC<IDropDownProps> = ({ options, setSelected }) => {
@@ -19,7 +19,7 @@ const DropDown: FC<IDropDownProps> = ({ options, setSelected }) => {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
-        <Menu.Button className="inline-flex h-11 w-48 items-center justify-between rounded-xl border border-gray-300 bg-white px-5 py-2 text-sm font-medium text-gray-700 shadow-md ring-black hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 focus:ring-offset-gray-100 md:w-64">
+        <Menu.Button className="inline-flex h-11 w-48 items-center justify-between rounded-xl border border-gray-300 bg-white px-5 py-2 text-sm font-medium text-gray-400 shadow-md ring-black hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 focus:ring-offset-gray-100 md:w-64">
           {selectedOption}
           <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
         </Menu.Button>
@@ -43,7 +43,7 @@ const DropDown: FC<IDropDownProps> = ({ options, setSelected }) => {
                     active ? "bg-gray-100 text-gray-900" : "text-gray-700",
                     "block px-4 py-2 text-sm"
                   )}
-                  onClick={() => {setSelected("all"); setSelectedOption("All")}}
+                  onClick={() => {setSelected?.("all"); setSelectedOption("All")}}
                 >
                   All
                 </a>
@@ -57,7 +57,7 @@ const DropDown: FC<IDropDownProps> = ({ options, setSelected }) => {
                       active ? "bg-gray-100 text-gray-900" : "text-gray-700",
                       "block px-4 py-2 text-sm"
                     )}
-                    onClick={() => {setSelected(child.name); setSelectedOption(child.name);}}
+                    onClick={() => {setSelected?.(child.name); setSelectedOption(child.name);}}
                   >
                     {child.name}
                   </a>
