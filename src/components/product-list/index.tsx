@@ -96,7 +96,9 @@ const ProductList = () => {
             onSearchChange(e)
           }
         />
-        <DropDown options={categories} setSelected={setSelectedCategory} />
+        <div className="w-48 md:w-64">
+          <DropDown options={categories} setSelected={setSelectedCategory} />
+        </div>
       </div>
       {loading ? (
         <Spinner />
@@ -119,9 +121,7 @@ const ProductList = () => {
           })}
         </div>
       ) : (
-        <h1 className="text-center text-2xl">
-          There Aren't Any Products
-        </h1>
+        <h1 className="text-center text-2xl">There Aren't Any Products</h1>
       )}
     </div>
   );
