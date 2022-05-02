@@ -82,7 +82,7 @@ const CreatePage: FC = () => {
       {loading ? (
         <Spinner />
       ) : (
-        <div className="mt-8 flex w-11/12 max-w-sm flex-col self-center">
+        <div className="mt-8 mb-20 flex w-11/12 max-w-sm flex-col self-center">
           <h1 className="text-2xl sm:text-3xl font-semibold">Create Product</h1>
           <form className="mt-10 flex flex-col gap-6" onSubmit={handleSubmit}>
             <input

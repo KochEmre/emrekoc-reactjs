@@ -26,13 +26,13 @@ const DropDown: FC<IDropDownProps> = ({
     <Menu as="div" className="relative inline-block w-full text-left">
       <div>
         <Menu.Button
-          className={`inline-flex h-11 w-full items-center justify-between rounded-xl border border-gray-300 bg-white px-5 py-2 font-medium shadow-md ring-black hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 focus:ring-offset-gray-100 ${
+          className={`inline-flex h-11 w-full items-center justify-between rounded-xl border border-gray-300 bg-white px-2 sm:px-5 py-2 font-medium shadow-md ring-black hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 focus:ring-offset-gray-100 ${
             shownText === initialPlaceholder ? "text-gray-400" : "text-gray-700"
           }`}
         >
           {shownText}
           <ChevronDownIcon
-            className="-mr-1 ml-2 h-5 w-5 text-gray-700"
+            className="-mr-1 ml-2 h-5 w-4 sm:w-5 text-gray-700"
             aria-hidden="true"
           />
         </Menu.Button>

@@ -9,7 +9,7 @@ const AddButton = () => {
   };
   return (
     <div
-      className="fixed bottom-8 right-12 h-24 w-24 cursor-pointer rounded-full bg-white"
+      className="fixed bottom-6 right-8 md:bottom-8 md:right-12 w-12 h-12 sm:h-16 sm:w-16 lg:h-20 lg:w-20 cursor-pointer rounded-full bg-white"
       onClick={handleOnClick}
     >
       <AddIcon />

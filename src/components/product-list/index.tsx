@@ -87,23 +87,23 @@ const ProductList = () => {
 
   return (
     <div className="flex flex-col">
-      <div className="mx-8 my-6 flex h-14 flex-row items-center justify-between md:my-8 md:mx-16">
+      <div className="mx-4 sm:mx-8 my-2 sm:my-6 flex h-14 flex-row items-center justify-between md:my-8 md:mx-16">
         <input
-          className="w-96"
+          className=" w-40 sm:w-60 lg:w-72 xl:w-96"
           type={"search"}
           placeholder={"Apple Watch, Samsung S21, Macbook Pro, ..."}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             onSearchChange(e)
           }
         />
-        <div className="w-48 md:w-64">
+        <div className="w-32 sm:w-48 md:w-64">
           <DropDown options={categories} setSelected={setSelectedCategory} />
         </div>
       </div>
       {loading ? (
         <Spinner />
       ) : products.length > 0 ? (
-        <div className="my-6 grid w-3/5 grid-cols-3 gap-8 self-center md:my-10 md:grid-cols-4 md:gap-14 md:px-6">
+        <div className="my-4 sm:my-6 grid w-11/12 grid-cols-3 gap-4 sm:gap-6 md:gap-10 self-center px-1 lg:my-10 lg:grid-cols-4 lg:gap-14 lg:px-6 xl:w-3/5">
           {products.map((product, index) => {
             return (
               <ProductCard

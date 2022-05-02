@@ -48,9 +48,9 @@ const DetailPage: FC = () => {
       {loading ? (
         <Spinner />
       ) : (
-        <div className="mt-8 flex w-1/2 flex-col self-center">
-          <div className="flex flex-row gap-10">
-            <div className=" flex h-72 w-52 items-center justify-center rounded-2xl bg-white p-4 md:h-80 md:w-64 md:p-10">
+        <div className="mt-2 mb-8 md:mb-16 sm:mt-4 lg:mt-8 flex w-11/12 flex-col self-center md:w-2/3 xl:w-1/2">
+          <div className="flex flex-row gap-4 sm:gap-6 md:gap-10">
+            <div className=" flex h-48 sm:h-60 w-52 items-center justify-center rounded-2xl bg-white p-4 sm:p-5 md:h-72 md:w-64 lg:p-8 xl:h-80 xl:p-10">
               <img
                 src={productDetail.avatar}
                 alt={productDetail.name}
@@ -58,17 +58,19 @@ const DetailPage: FC = () => {
               />
             </div>
             <div className="flex flex-col justify-between">
-              <h1 className="text-left text-5xl font-bold">
+              <h1 className="text-left text-3xl font-bold md:text-4xl lg:text-5xl">
                 {productDetail.name.charAt(0).toUpperCase() +
                   productDetail.name.slice(1)}
               </h1>
-              <h2 className="text-2xl font-semibold">${productDetail.price}</h2>
+              <h2 className="text-xl font-semibold md:text-2xl">
+                ${productDetail.price}
+              </h2>
             </div>
           </div>
-          <div className="my-8 mx-3 flex-grow rounded-2xl border-t-4 border-neutral-400"></div>
+          <div className="my-6 md:my-8 mx-3 flex-grow rounded-2xl border-t-4 border-neutral-400"></div>
           <div>
-            <h2 className="mb-2 text-2xl font-semibold">Description:</h2>
-            <p className="font-medium text-gray-500">
+            <h2 className="mb-2 text-xl md:text-2xl font-semibold">Description:</h2>
+            <p className="font-medium text-gray-500 text-sm sm:text-base">
               {productDetail.description}
             </p>
           </div>

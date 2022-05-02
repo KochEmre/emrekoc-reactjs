@@ -23,7 +23,7 @@ const ProductCard: FC<IProductCardProps> = ({ data }) => {
   return (
     <div className="flex w-full flex-col justify-center ">
       <div
-        className=" flex h-60 cursor-pointer items-center justify-center rounded-2xl bg-white p-2 duration-200 ease-in-out hover:scale-105 md:h-72 md:p-8"
+        className=" flex h-44 cursor-pointer items-center justify-center rounded-2xl bg-white p-2 duration-200 ease-in-out hover:scale-105 md:h-60 xl:h-72 md:p-3 "
         onClick={handleOnClick}
       >
         <img alt={name} src={avatar} className="h-full w-full object-contain" />
